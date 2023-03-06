@@ -14,8 +14,9 @@ export default function AddProjectForm({
   
   const [newProject, setNewProject] = useState({
     name: "",
-    title: "",
-    description: ""
+    author: "",
+    status: "",
+    date: ""
   });
 
   function handleChangeInput(event) {
@@ -31,8 +32,8 @@ export default function AddProjectForm({
     setNewProject(updatedProject);
   }
 
-  function onSetUser(user) {
-    const updatedProject = { ...newProject, author: user };
+  function onSetUser(author) {
+    const updatedProject = { ...newProject, author: author };
     setNewProject(updatedProject);
   }
 
@@ -55,9 +56,10 @@ export default function AddProjectForm({
 
   return (
     <Form
+      style={{height:"40vh", width:"400px"}}
       className="project-card"
       onSubmit={(e) =>
-        newProject.name && newProject.title && newProject.description
+        newProject.name && newProject.status
           ? handleSubmit(e)
           : ((e) => {
               e.preventDefault();
@@ -74,22 +76,22 @@ export default function AddProjectForm({
             onChange={handleChangeInput}
           ></input>
         </h3>
-        <ul>
-          <li>
+        <div className="dropdown">
+          <div style={{margin:"auto"}}>
             <UserDropDown
               buttonTitle={newProject.author}
               onSetUser={onSetUser}
               userList={userList}
               userType="Project Creator"
             />
-          </li>
-          <li>
+          </div>
+          <div style={{margin:"auto"}}>
             <StatusDropDown
               buttonTitle={newProject.status}
               onSetStatus={onSetStatus}
             />
-          </li>
-        </ul>
+          </div>
+        </div>
       </div>
 
       <div className="project-card-buttons">
