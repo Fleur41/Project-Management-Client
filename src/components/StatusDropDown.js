@@ -17,6 +17,7 @@ export default function StatusDropDown({ onSetStatus, buttonTitle }) {
       <Dropdown.Item
         href="#/action-1"
         onClick={(event) => onSetStatus(event.target.textContent)}
+        style={{color:"white", background:"yellow", textDecoration:"none", margin:"5px"}}
       >
         On Hold
       </Dropdown.Item>
@@ -24,6 +25,7 @@ export default function StatusDropDown({ onSetStatus, buttonTitle }) {
       <Dropdown.Item
         href="#/action-2"
         onClick={(event) => onSetStatus(event.target.textContent)}
+        style={{color:"white", background:"red", textDecoration:"none", margin:"5px",}}
       >
         Ready to Start
       </Dropdown.Item>
@@ -31,6 +33,7 @@ export default function StatusDropDown({ onSetStatus, buttonTitle }) {
       <Dropdown.Item
         href="#/action-3"
         onClick={(event) => onSetStatus(event.target.textContent)}
+        style={{color:"white", background:"green", textDecoration:"none", margin:"5px", margin:"auto"}}
       >
         Working On It
       </Dropdown.Item>
@@ -38,6 +41,7 @@ export default function StatusDropDown({ onSetStatus, buttonTitle }) {
       <Dropdown.Item
         href="#/action-3"
         onClick={(event) => onSetStatus(event.target.textContent)}
+        style={{color:"white", background:"blue", textDecoration:"none", margin:"5px"}}
       >
         Completed
       </Dropdown.Item>
