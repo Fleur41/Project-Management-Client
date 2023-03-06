@@ -71,16 +71,27 @@ export default function ProjectContainer({
   }
 
   return (
-    <div className="App">
+    <div className="project-container" style={{background:"#242842", width:"100%", margin:"auto", position:"relative"}}>
+      <div style={{border:"2px solid orange", width:"50%"}}>
       <h1>Projects</h1>
+      {projectCards}
+      </div>
+      
+      <div style={{border:"2px solid yellow", width:"50%"}}>
       <h2>On Hold</h2>
       {onHoldCards}
+      </div>
+
+      <div style={{border:"3px solid red",width:"50%"}}>
       <h2>Ready to Start</h2>
       {readyToStartCards}
+      </div>
+      <div style={{border:"3px solid green", width:"50%"}}>
       <h2>Working on It</h2>
-
       {workingOnItCards}
-
+      </div>
+      
+      <div className="Add--project">
       <AddProject
         addProject={addProject}
         setAddProject={setAddProject}
@@ -88,6 +99,8 @@ export default function ProjectContainer({
         onCancelAdd={onCancelAdd}
         userList={userList}
       />
+      </div>
+      
     </div>
   );
 }
