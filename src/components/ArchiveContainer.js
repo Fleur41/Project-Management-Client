@@ -26,7 +26,7 @@ export default function ArchiveContainer({
 
   return (
     <div className="completed--projects" style={{border:"2px solid", background:"#242842", height:"100%"}}>
-      <h1 style={{color:"white"}}>Completed Projects</h1>
+      <h1 style={{color:"aqua"}}>Completed Projects</h1>
       {projectCards}
     </div>
   );

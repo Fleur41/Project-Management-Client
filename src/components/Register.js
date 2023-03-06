@@ -20,7 +20,7 @@ function Register() {
               />
     
               <Form.Text className="text-muted">
-                Give your User a memorable, but informative name!
+                Give your User a memorable and informative name!
               </Form.Text>
             </Form.Group>
     

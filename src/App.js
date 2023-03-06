@@ -170,9 +170,10 @@ function App() {
           }
         />
       </Routes>
+      <Footer/>
       </BrowserRouter>
 
-      <Footer/>
+      
     </div>
   );
 }

@@ -80,7 +80,7 @@ export default function Login({ handleUserLogin, onCancelAddUser, userList }) {
         </Button>
       </Form>
 
-      <Button onClick={onCancelAddUser} variant="primary" type="text" style={{marginTop:"10px", padding:"10px 20px", background:"red"}}>
+      <Button onClick={onCancelAddUser} variant="primary" type="text" style={{marginRight:"auto", padding:"10px 20px", background:"red"}}>
         Cancel
       </Button>
     </div>

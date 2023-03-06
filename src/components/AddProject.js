@@ -8,10 +8,8 @@ export default function AddProject({addProject, setAddProject, onAddNewProject, 
 
     return(
         <div>
-
-            
             {
-            //if add project
+            //if you add project
             addProject ? 
             //display add project form
             <AddProjectForm setAddProject={setAddProject} onCancelAdd={onCancelAdd} onAddNewProject={onAddNewProject} userList={userList}/> 
