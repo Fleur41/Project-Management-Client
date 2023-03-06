@@ -7,6 +7,7 @@ import "./App.css";
 import ProjectContainer from "./components/ProjectContainer";
 import ArchiveContainer from "./components/ArchiveContainer";
 import Login from "./components/LogIn";
+import Footer from "./components/Footer";
 
 function App() {
   const [userList, setUserList] = useState([]);
@@ -35,24 +36,27 @@ function App() {
 
   useEffect(
 
-    //only if user in session storage is either on the userList or is Admin, both with correct password, setCurrentUser to that upon refresh
-    ()=>{
-    const newCurrentUser =  sessionStorage.token ? JSON.parse(sessionStorage.token) : '';
+    //only if user is in session storage is either on the userList or is Admin, both with correct password, setCurrentUser to that upon refresh
+    () => {
+      const newCurrentUser = sessionStorage.token
+        ? JSON.parse(sessionStorage.token)
+        : "";
 
-    const  isAdmin = newCurrentUser.name === 'admin' && newCurrentUser.password === '123'
+      const isAdmin =
+        newCurrentUser.name === "admin" && newCurrentUser.password === "123" && newCurrentUser.email === "admin@gmail.com" ;
 
-    const user = userList.filter(e=>e.name===newCurrentUser.name)[0]
+      const user = userList.filter((e) => e.name === newCurrentUser.name && e.password === newCurrentUser.password && e.email=== newCurrentUser.email)[0];
 
-    const isUser = user && user.password === newCurrentUser.password ? true : false
+      const isUser =
+        user && user.password === newCurrentUser.password ? true : false;
 
-    isUser || isAdmin ? setCurrentUser(newCurrentUser) : setCurrentUser('')
-    
-    console.log(isUser)
-  
-  },[userList]
-     
-   
+      isUser || isAdmin ? setCurrentUser(newCurrentUser) : setCurrentUser("");
+
+      console.log(isUser);
+    },
+    [userList]
   );
+  
 
   //helper functions for logging in and out
 
@@ -64,6 +68,10 @@ function App() {
   function handleUserLogin(obj) {
     sessionStorage.setItem("token", JSON.stringify(obj));
     setCurrentUser(obj);
+  }
+
+  function handleUserRegistration(){
+
   }
 
   //helper functions for Projects Page
@@ -155,8 +163,16 @@ function App() {
             <Login handleUserLogin={handleUserLogin} userList={userList} />
           }
         />
+        <Route
+          path="/register"
+          element={
+            <Login handleUserRegistration={handleUserRegistration} userList={userList} />
+          }
+        />
       </Routes>
       </BrowserRouter>
+
+      <Footer/>
     </div>
   );
 }

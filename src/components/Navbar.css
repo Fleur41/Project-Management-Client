@@ -1,0 +1,29 @@
+.Nav--item{
+    padding-left: 10px;
+    margin-Left:20px ;
+    
+}
+.Nav--link{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    background-color: rgba(22, 22, 63, 0.856);
+    border-radius: 5px;
+    padding: 12px;
+}
+.Nav--link:hover{
+    color: rgb(226, 205, 16);
+    background-color: rgb(97, 24, 180);
+}
+.logout{
+    color: white;
+    font-weight: bold;
+    background-color: rgba(22, 22, 63, 0.856);
+    border-radius: 5px;
+    padding: 12px;
+    justify-items: right;
+    margin-top: 58px;
+
+    
+}
+
