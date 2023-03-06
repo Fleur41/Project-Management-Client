@@ -6,7 +6,7 @@ import { Link, Routes, Route, useNavigate } from "react-router-dom";
 export default function Login({ handleUserLogin, onCancelAddUser, userList }) {
   let history = useNavigate();
 
-  const [loginUser, setLoginUser] = useState({ name: "", password: "" });
+  const [loginUser, setLoginUser] = useState({ name: "", email: "",password: "" });
 
   function handleChangeInput(event) {
     const updatedUser = {
@@ -20,9 +20,9 @@ export default function Login({ handleUserLogin, onCancelAddUser, userList }) {
     event.preventDefault();
 
     const attempter = userList.filter(
-      (e) => e.name === loginUser.name && e.password === loginUser.password
+      (e) => e.name === loginUser.name && e.password === loginUser.password && e.email === loginUser.email
     );
-    const isAdmin = loginUser.name === "admin" && loginUser.password === 123;
+    const isAdmin = loginUser.name === "admin" && loginUser.password === 123  && loginUser.email=== "admin@gmail.com";
 
     attempter || isAdmin ? handleUserLogin(loginUser) : alert("wrong");
 
@@ -30,8 +30,9 @@ export default function Login({ handleUserLogin, onCancelAddUser, userList }) {
   }
 
   return (
-    <>
-      <Form onSubmit={handleSubmit}>
+    <div className="login-container" style={{background:"#242842", width:"100%", margin:"auto", height:"100vh", position:"absolute"}}>
+    <div style={{background:"gray", width:"40%", margin:"auto", height:"400px", borderRadius:"10px",position:"relative", marginTop:"100px"}}>
+      <Form className="login--form" onSubmit={handleSubmit} style={{display:"inline-block", padding:"20px"}}>
         <Form.Group className="mb-3">
           <Form.Label>User Name</Form.Label>
 
@@ -41,6 +42,7 @@ export default function Login({ handleUserLogin, onCancelAddUser, userList }) {
             placeholder="Enter User Name"
             value={loginUser.name}
             onChange={handleChangeInput}
+            style={{padding:"10px 100px"}}
           />
 
           <Form.Text className="text-muted">
@@ -49,24 +51,39 @@ export default function Login({ handleUserLogin, onCancelAddUser, userList }) {
         </Form.Group>
 
         <Form.Group className="mb-3">
-          <Form.Label>Password</Form.Label>
+          <Form.Label>Email</Form.Label>
           <Form.Control
-            name="password"
-            type="text"
-            placeholder="Provide password"
+            name="email"
+            type="email"
+            placeholder="Provide email"
             onChange={handleChangeInput}
-            value={loginUser.password}
+            value={loginUser.email}
+            style={{padding:"10px 100px"}}
           />
         </Form.Group>
 
-        <Button variant="primary" type="submit">
+
+        <Form.Group className="mb-3">
+          <Form.Label>Password</Form.Label>
+          <Form.Control
+            name="password"
+            type="password"
+            placeholder="Provide password"
+            onChange={handleChangeInput}
+            value={loginUser.password}
+            style={{padding:"10px 100px"}}
+          />
+        </Form.Group>
+
+        <Button variant="primary" type="submit" style={{marginTop:"10px", padding:"10px 20px", background:"blue"}}>
           Submit
         </Button>
       </Form>
 
-      <Button onClick={onCancelAddUser} variant="primary" type="text">
+      <Button onClick={onCancelAddUser} variant="primary" type="text" style={{marginTop:"10px", padding:"10px 20px", background:"red"}}>
         Cancel
       </Button>
-    </>
+    </div>
+    </div>
   );
 }
