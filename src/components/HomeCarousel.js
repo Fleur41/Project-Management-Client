@@ -29,9 +29,9 @@ export default function HomeCarousel() {
           
         />
 
-        <Carousel.Caption style={{border:"2px solid", margin:"10px",background:"gray"}}>
+        <Carousel.Caption style={{border:"2px solid", margin:"10px",background:"green"}}>
           <h3>Create a Project</h3>
-          <p>View our Projects Page to Manage Projects.</p>
+          <p>Welcome, View our Projects Page to Manage Projects.</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
